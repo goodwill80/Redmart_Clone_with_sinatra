@@ -10,3 +10,4 @@ source "https://rubygems.org"
   gem 'activerecord'
   gem 'pg'
   gem 'tux'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
