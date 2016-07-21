@@ -9,6 +9,10 @@ class Redmart_sinatraApp < Sinatra::Base
       erb :'users'
   end
 
+  get '/about' do
+      erb '<h3>about us</h3>'
+  end
+
   get '/users/:id' do
 
   end
