@@ -4,9 +4,6 @@ class Redmart_sinatraApp < Sinatra::Base
       erb '<h2>Welcome to RedMart!</h2>'
     end
 
-  get '/about' do
-      erb :'about'
-    end
 
   # Gets all users we have
   get "/users" do
@@ -35,6 +32,11 @@ class Redmart_sinatraApp < Sinatra::Base
   # CREATE - where the new form POSTs to, it does the actual creating
   # POST "/users" - Create a new user, add it to our list
   post "/users" do
+
+    puts params[:user]
+    puts params[:name]
+    puts params[:address]
+
     User.create(
     name: "Jonathan",
     email: "j.hokit80@gmail.com",
@@ -43,7 +45,7 @@ class Redmart_sinatraApp < Sinatra::Base
     cc_number: 123456789101
     )
 
-    erb "create one user with id #{params[:id]}"
+    erb :'users/:id'
   end
 
 
