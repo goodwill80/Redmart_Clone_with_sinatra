@@ -1,6 +1,6 @@
 class CreateOrders < ActiveRecord::Migration
   def change
-      create_table  :purchases do |t|
+      create_table  :orders do |t|
       end
   end
 end
