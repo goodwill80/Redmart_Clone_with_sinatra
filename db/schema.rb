@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20160721125550) do
     t.datetime "updated_at"
   end
 
+  create_table "orders", force: :cascade do |t|
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name",        null: false
     t.decimal  "brand_id"
@@ -40,6 +43,12 @@ ActiveRecord::Schema.define(version: 20160721125550) do
   end
 
   create_table "purchases", force: :cascade do |t|
+    t.string   "product_id",    limit: 30, null: false
+    t.string   "user_id",                  null: false
+    t.date     "purchase_date",            null: false
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
