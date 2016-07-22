@@ -1,5 +1,5 @@
 require './models/user'
-require 'Faker'
+require 'faker'
 
 (0..10).each do |i|
   User.create(

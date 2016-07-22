@@ -1,7 +1,7 @@
 <h4>Individual User</h4>
 
 <ul>
-
+<% @users.each do |user| %>
 
   <li>
     <%= @user[:name] %> is <%= @user[:id] %>
@@ -30,6 +30,6 @@
   <li>
     <%= @user[:name] %> joined us on <%= @user[:created_at] %>
   </li>
-
+<% end %>
 
 </ul>

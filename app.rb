@@ -5,30 +5,31 @@ class Redmart_sinatraApp < Sinatra::Base
     end
 
   get '/about' do
-      erb 'about'
+      erb :'about'
     end
 
   # Gets all users we have
   get "/users" do
       @users = User.all
-      erb :'users'
+      erb :'users/index'
     end
 
   # GET FORM VIEW TO CREATE NEW USER
   get "/users/new" do
-      erb "get form to create one user with id #{params[:id]}"
+      erb :'users/new'
     end
 
   # SHOW - show details about just one user with id #{params[:id]}
   # GET "/user/n" - Just get one specific user (that already exists)
   get "/users/:id" do
     @users = User.find( params[:id] )
-    erb "generate one user with id #{params[:id]}"
+    erb :'users/show'
   end
 
   # GET FORM VIEW TO EDIT AN EXISTING user
   get "/users/:id/edit" do
-      erb "get form to create one user with id #{params[:id]}"
+      @users = User.find(params[:id])
+      erb :'users/edit'
   end
 
   # CREATE - where the new form POSTs to, it does the actual creating
