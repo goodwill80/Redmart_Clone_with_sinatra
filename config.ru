@@ -10,4 +10,5 @@ require './models/category'
 require './models/brand'
 require './app'
 
+use Rack::MethodOverride
 run Redmart_sinatraApp

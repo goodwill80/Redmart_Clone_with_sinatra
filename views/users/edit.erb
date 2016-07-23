@@ -1,0 +1,19 @@
+<h3>Form to edit existing user / Edit Profile</h3>
+
+<form action="/users/<%= @user[:id] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <div class="form-group">
+    <label>Name
+      <input type="text" name="user[name]" value="<%= @user[:name] %>">
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>Address
+      <input type="text" name="user[address]" value="<%= @user[:address] %>">
+    </label>
+  </div>
+
+  <input type="submit" value="submit">
+</form>
