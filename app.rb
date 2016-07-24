@@ -62,4 +62,52 @@ class Redmart_sinatraApp < Sinatra::Base
       end
 
     end
+
+
+
+
+    get '/products' do
+      @products = Product.all
+      erb :'products/index'
+    end
+
+    get '/products/:id' do
+      if params[:id] == 'new'
+        erb :'products/new'
+      else
+        @product = Product.find(params[:id])
+        erb :'products/show'
+      end
+    end
+
+
+    get '/products/new' do
+      @product= Product.new
+      erb :'products/new'
+    end
+
+    post '/products' do
+      puts params[:product]
+      @products = Product.new(params[:product])
+      if @products.save
+        redirect("/products")
+      else
+        erb :"products/new"
+    end
+  end
+
+    get '/products/:id/edit' do
+      @product = Product.find(params[:id])
+      erb :'products/edit'
+  end
+
+    put '/products/:id' do
+    @product = Product.find(params[:id])
+
+    if @product.update_attributes( params[:product] )
+      redirect("/products")
+    end
+  end
+
+
   end

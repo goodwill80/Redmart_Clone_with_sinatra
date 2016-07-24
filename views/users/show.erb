@@ -1,5 +1,9 @@
 <h3><%= @user[:name] %>'s Page</h3>
-<p><%= @user[:address] %></p>
+<p>User registered email is <%= @user[:email] %></p>
+<p>registered address is <%=@user[:address]%></p>
+<p>registered password is <%=@user[:password]%></p>
+<p>registered Credit Card Number is <%=@user[:cc_number]%></p>
+
 
 <!-- delete flow  -->
 <form action="/users/<%= @user[:id] %>" method="post">

@@ -12,27 +12,52 @@
 </ul> -->
 
 <table class="table table-striped">
+
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Password</th>
+      <th>CC Number<th>
       <th>Actions</th>
     </tr>
   </thead>
+
   <tbody>
     <% @users.each do |user| %>
+
     <tr>
+
+
       <td>
         <%= user[:id] %>
       </td>
+
       <td>
         <%= user[:name] %>
       </td>
+
       <td>
-        <!-- show flow -->
-        <a href="/users/<%= user[:id] %>">View</a> |
+        <%= user[:email] %>
+      </td>
+
+      <td>
+        <%= user[:address] %>
+      </td>
+
+      <td>
+        <%= user[:password] %>
+      </td>
+
+      <td>
+        <%= user[:cc_number] %>
+      </td>
+
+      <td>
+        <a href="/users/<%= user[:id] %>">View</a>
         <a href="/users/<%= user[:id] %>/edit">Edit</a>
-        <!-- delete flow  -->
         <form action="/users/<%= user[:id] %>" method="post">
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="Delete">

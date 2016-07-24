@@ -1,0 +1,47 @@
+<h3>All Products</h3>
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Brand ID</th>
+      <th>Category ID</th>
+      <th>Actions</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+
+    <tr>
+
+
+      <td>
+        <%= product[:id] %>
+      </td>
+
+      <td>
+        <%= product[:name] %>
+      </td>
+
+      <td>
+        <%= product[:brand_id] %>
+      </td>
+
+      <td>
+        <%= product[:category_id] %>
+      </td>
+
+      <td>
+        <a href="/products/<%=product[:id]%>">View</a>
+        <a href="/products/<%= product[:id] %>/edit">Edit</a>
+
+      </td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
