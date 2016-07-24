@@ -71,6 +71,11 @@ class Redmart_sinatraApp < Sinatra::Base
       erb :'products/index'
     end
 
+    get '/products/new' do
+      @product= Product.new
+      erb :'products/new'
+    end
+
     get '/products/:id' do
       if params[:id] == 'new'
         erb :'products/new'
@@ -80,11 +85,6 @@ class Redmart_sinatraApp < Sinatra::Base
       end
     end
 
-
-    get '/products/new' do
-      @product= Product.new
-      erb :'products/new'
-    end
 
     post '/products' do
       puts params[:product]
@@ -108,6 +108,20 @@ class Redmart_sinatraApp < Sinatra::Base
       redirect("/products")
     end
   end
+
+  delete '/products/:id' do
+    @product = Product.find(params[:id])
+
+    if @product.destroy
+      redirect("/products")
+    else
+      erb :"products/#{@product.id }"
+    end
+
+  end
+
+
+
 
 
   end

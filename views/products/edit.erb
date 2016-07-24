@@ -1,6 +1,8 @@
 <h2>Edit Product</h2>
 
-<form class="product" id="edit-product" action="/products/<%= @product[:id] %>" method="PUT">
+<form class="product" id="edit-product" action="/products/<%= @product[:id] %>" method="post">
+
+<input type="hidden" name="_method" value="put">
 
   <div>
   <label for="Product Name">Name:

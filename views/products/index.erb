@@ -39,6 +39,10 @@
         <a href="/products/<%=product[:id]%>">View</a>
         <a href="/products/<%= product[:id] %>/edit">Edit</a>
 
+        <form action="/products/<%= product[:id] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="delete">
+        </form>
       </td>
 
     </tr>
